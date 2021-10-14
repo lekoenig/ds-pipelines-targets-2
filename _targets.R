@@ -43,16 +43,8 @@ p1_targets_list <- list(
 
 p2_targets_list <- list(
   tar_target(
-    site_data_clean, 
-    process_data(site_data)
-  ),
-  tar_target(
-    site_data_annotated,
-    annotate_data(site_data_clean, site_filename = site_info_csv)
-  ),
-  tar_target(
-    site_data_styled,
-    style_data(site_data_annotated)
+    site_data_processed, 
+    process_data(combined_site_data,site_info_csv)
   )
 )
 
