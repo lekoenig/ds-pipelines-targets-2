@@ -51,7 +51,7 @@ p2_targets_list <- list(
 p3_targets_list <- list(
   tar_target(
     figure_1_png,
-    plot_nwis_timeseries(fileout = "3_visualize/out/figure_1.png", site_data_styled,
+    plot_nwis_timeseries(fileout = "3_visualize/out/figure_1.png", site_data_processed,
                          width = p_width, height = p_height, units = p_units),
     format = "file"
   )
