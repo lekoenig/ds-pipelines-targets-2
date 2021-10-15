@@ -8,9 +8,6 @@ tar_option_set(packages = c("tidyverse", "dataRetrieval")) # Loading tidyverse b
 
 site_nums <- c("01427207","01432160","01435000","01436690","01466500")
 
-p_width <- 12
-p_height <- 7
-p_units <- "in"
 
 p1_targets_list <- list(
   tar_target(
@@ -37,24 +34,22 @@ p1_targets_list <- list(
     combined_site_data, 
     combine_site_data(c(nwis_01427207_csv,nwis_01432160_csv,nwis_01435000_csv,nwis_01436690_csv,nwis_01466500_csv))),
   tar_target(
-    site_info_csv,
-    nwis_site_info(fileout = "1_fetch/out/site_info.csv",combined_site_data),
-    format="file")
+    site_info,
+    nwis_site_info(combined_site_data))
 )
 
 p2_targets_list <- list(
   tar_target(
-    site_data_processed, 
-    process_data(combined_site_data,site_info_csv)
+    site_data_processed_csv, 
+    process_data(fileout = "2_process/out/site_data_processed.csv",combined_site_data,site_info),
+    format = "file"
   )
 )
 
 p3_targets_list <- list(
   tar_target(
-    figure_1_png,
-    plot_nwis_timeseries(fileout = "3_visualize/out/figure_1.png", site_data_processed,
-                         width = p_width, height = p_height, units = p_units),
-    format = "file"
+    figure_1_draft,
+    plot_nwis_timeseries(processed_data_file = site_data_processed_csv)
   )
 )
 
