@@ -1,5 +1,4 @@
 source("1_fetch/src/get_nwis_data.R")
-tar_option_set(packages = c("tidyverse", "dataRetrieval")) # Loading tidyverse because we need dplyr, ggplot2, readr, stringr, and purrr
 
 p1_targets_list <- list(
   tar_target(
