@@ -43,15 +43,17 @@ p1_targets_list <- list(
 
 p2_targets_list <- list(
   tar_target(
-    site_data_processed, 
-    process_data(combined_site_data,site_info)
+    site_data_processed_csv, 
+    process_data(fileout = "2_process/out/site_data_processed.csv",combined_site_data,site_info),
+    format = "file"
   )
 )
 
 p3_targets_list <- list(
   tar_target(
     figure_1_png,
-    plot_nwis_timeseries(fileout = "3_visualize/out/figure_1.png", site_data_processed,
+    plot_nwis_timeseries(fileout = "3_visualize/out/figure_1.png", 
+                         processed_data_file = site_data_processed_csv,
                          width = p_width, height = p_height, units = p_units),
     format = "file"
   )
