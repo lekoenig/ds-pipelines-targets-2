@@ -38,7 +38,8 @@ p1_targets_list <- list(
     combine_site_data(c(nwis_01427207_csv,nwis_01432160_csv,nwis_01435000_csv,nwis_01436690_csv,nwis_01466500_csv))),
   tar_target(
     site_info_csv,
-    nwis_site_info(fileout = "1_fetch/out/site_info.csv",combined_site_data))
+    nwis_site_info(fileout = "1_fetch/out/site_info.csv",combined_site_data),
+    format="file")
 )
 
 p2_targets_list <- list(
