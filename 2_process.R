@@ -1,5 +1,4 @@
 source("2_process/src/process_and_style.R")
-tar_option_set(packages = c("tidyverse")) 
 
 p2_targets_list <- list(
   tar_target(
